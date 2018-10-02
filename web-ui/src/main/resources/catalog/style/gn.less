@@ -73,6 +73,9 @@ div[gn-transfer-ownership] * .list-group {
 .gn-top-bar {
     border-radius: 0px;
     padding: 0 20px;
+    margin-bottom: 0px;
+    z-index: 10;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.2);
     .navbar-collapse {
  //       padding-right: 5px;
     }
@@ -793,7 +796,7 @@ input.ng-invalid {
 
 
 .navbar {
-  margin-bottom: 14px;
+  // margin-bottom: 0px;
   .navbar-brand {
     padding-top: 0;
     padding-bottom: 0;
@@ -810,10 +813,11 @@ input.ng-invalid {
           font-family: FontAwesome;
           content: "\f0d7";
           position: absolute;
-          bottom: -5px;
-          left: 50%;
+          top: 16px;
+          right: -5px;
           transform: translate(-50%, 0);
           font-size: 0.9em;
+          color: #d1d1d1;
         }
       }
       &.open:not(.active) > .dropdown-toggle {

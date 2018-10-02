@@ -495,6 +495,76 @@
        * a global overview of the catalog content.
        */
       $scope.searchInfo = {};
+      $scope.globalOmniumCats=[
+        {
+          title: 'Redes agua potable',
+          icon: 'redes-agua-potable',
+          url: 'Redes agua potable',
+          count:'3'
+        },
+        {
+          title: 'Redes agua salada',
+          icon: 'redes-agua-salada',
+          url: 'Redes agua salada',
+          count:'2'
+        },
+        {
+          title: 'Redes agua otras redes',
+          icon: 'otras-redes',
+          url: 'Redes agua otras redes',
+          count:'2'
+        },
+        {
+          title: 'Redes saneamiento',
+          icon: 'redes-saneamiento',
+          url: 'Redes saneamiento',
+          count:'2'
+        },
+        {
+          title: 'Cartografía',
+          icon: 'cartografia',
+          url: 'Cartografía',
+          count:'2'
+        },
+        {
+          title: 'Entidades administrativas',
+          icon: 'entidades-administrativas',
+          url: 'Entidades administrativas',
+          count:'2'
+        },
+        {
+          title: 'Sectorización',
+          icon: 'sectorizacion',
+          url: 'Sectorización',
+          count:'2'
+        },
+        {
+          title: 'Avalon',
+          icon: 'avalon',
+          url: 'Avalon',
+          count:'2'
+        },
+        {
+          title: 'Estructuras',
+          icon: 'estructuras',
+          url: 'Estructuras',
+          count:'2'
+        },
+        {
+          title: 'Equipos',
+          icon: 'equipos',
+          url: 'Equipos',
+          count:'2'
+        },
+        {
+          title: 'Mapas temáticos',
+          icon: 'mapas-tematicos',
+          url: 'Mapas temáticos',
+          count:'2'
+        }
+       
+      ];   
+
 
       $scope.status = null;
       var defaultStatus = {

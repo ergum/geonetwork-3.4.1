@@ -9,7 +9,7 @@
 @import "gn_topics_default.less";
 // navigation
 @import "gn_navbar_default.less";
-// styling for a single result: metadata view
+// styling for a single result: metadata view 
 @import "gn_result_default.less";
 // styling for all search results
 @import "gn_results_default.less";
@@ -42,9 +42,10 @@
   position: relative;
   .gn-md-view {
     padding: 0 20px;
+    margin-top: 18px;
   }
   .badge {
-      margin-right: 5px;
+      //margin-right: 5px;
     }
   .nav-pills {
     margin-bottom: 1em;
@@ -83,12 +84,21 @@
       margin-left: 64px;
     }
     .gn-form-any {
-      max-width: 45vw;
+     // max-width: 45vw;
       input[type="text"], button {
         height: 36px;
       }
       button.btn-lg, input[type="text"].input-lg {
-        height: 46px;
+        height: 58px;
+        margin-top: 18px;
+      }
+      input[type="text"].input-lg{
+        border-bottom-left-radius: 30px !important;
+      border-top-left-radius: 30px !important;
+      }
+      .btn-search{
+        border-bottom-right-radius: 30px !important;
+    border-top-right-radius: 30px !important;
       }
     }
   }
@@ -157,14 +167,14 @@
   List of records
  */
 .gn-info-list {
-  padding: 5px 0px;
+  padding: 0px 0px;
   margin: auto -10px;
   li {
-    width: 33.3%;
+    width: 50%;
     zoom: 1;
     list-style: none;
     float: left;
-    padding: 10px;
+    padding: 0px;
     > div {
       margin: 0px;
       padding: 15px;

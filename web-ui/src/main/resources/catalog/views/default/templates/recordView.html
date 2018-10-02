@@ -2,7 +2,7 @@
   <div class="alert alert-warning"
        data-ng-hide="mdView.current.record"
        data-translate=""
-       data-translate-values="{uuid: '{{recordIdentifierRequested | htmlToPlaintext}}', url: '{{url | encodeURIComponent}}'}">
+       data-translate-values="{uuid: '{{recordIdentifierRequested | htmlToPlaintext}}'}">
     recordNotFound
   </div>
 
@@ -10,7 +10,7 @@
        data-ng-show="mdView.current.record">
     <button class="btn btn-primary"
             data-ng-click="closeRecord(mdView.current.record)">
-      <i class="fa fa-search"></i>
+      <i class="fa fa-chevron-left"></i>
       <span><span>{{'backTo' + (fromView || 'search') | translate}}</span></span>
     </button>
 
@@ -101,7 +101,8 @@
 
       <div class="col-md-8 gn-record">
         <h1>
-          <i class="fa gn-icon-{{mdView.current.record.type[0]}}"/>
+          <!-- <i class="fa gn-icon-{{mdView.current.record.type[0]}}"/> -->
+          <img class="go-icon-image go-icon-image-metadata-result" ng-src="../../images/icons/{{mdView.current.record.type[0]}}.svg"/>
           {{mdView.current.record.title || mdView.current.record.defaultTitle}}
 
         </h1>
@@ -153,7 +154,9 @@
                    data-ng-click="search({'_cat': cat})"
                    class="btn btn-sm btn-default"
                    title="{{'clickToFilterOn' | translate}} {{('cat-' + cat) | translate}}">
-                <span class="fa gn-icon-{{cat}} resource-color"></span>&nbsp;
+                <!-- <span class="fa gn-icon-{{cat}} resource-color"></span> -->
+                <img class="go-icon-image go-icon-image-category-result" ng-src="../../images/icons/{{cat}}.svg"/>
+                &nbsp;
                 {{('cat-' + cat) | translate}}
               </button>
 
@@ -161,7 +164,9 @@
                    data-ng-click="search({'topicCat': cat})"
                    class="btn btn-sm btn-default"
                    title="{{'clickToFilterOn' | translate}} {{cat | translate}}">
-                <span class="fa gn-icon-{{cat}} topic-color"></span>&nbsp;
+                <!-- <span class="fa gn-icon-{{cat}} topic-color"></span> -->
+                <img class="go-icon-image go-icon-image-category-result" ng-src="../../images/icons/{{cat}}.svg"/>
+                &nbsp;
                 {{cat | translate}}
               </button>
             </td>
@@ -435,22 +440,19 @@
           </h4>
 
           <p>
-          <dl data-ng-show="mdView.current.record.creationDate.length > 0">
+          <dl data-ng-show="mdView.current.record.creationDate">
             <dt data-translate>creationDate</dt>
-            <dd data-ng-repeat="creaDate in mdView.current.record.creationDate track by $index"
-                data-gn-humanize-time="{{creaDate}}"
+            <dd data-gn-humanize-time="{{mdView.current.record.creationDate}}"
                 data-format="YYYY-MM-DD"/>
           </dl>
-          <dl data-ng-show="mdView.current.record.publicationDate.length > 0">
+          <dl data-ng-show="mdView.current.record.publicationDate">
             <dt data-translate>publicationDate</dt>
-            <dd data-ng-repeat="pubDate in mdView.current.record.publicationDate track by $index"
-                data-gn-humanize-time="{{pubDate}}"
+            <dd data-gn-humanize-time="{{mdView.current.record.publicationDate}}"
                 data-format="YYYY-MM-DD"/>
           </dl>
-          <dl data-ng-show="mdView.current.record.revisionDate.length > 0">
+          <dl data-ng-show="mdView.current.record.revisionDate">
             <dt data-translate>revisionDate</dt>
-            <dd data-ng-repeat="revDate in mdView.current.record.revisionDate track by $index"
-                data-gn-humanize-time="{{revDate}}"
+            <dd data-gn-humanize-time="{{mdView.current.record.revisionDate}}"
                 data-format="YYYY-MM-DD"/>
           </dl>
           <dl data-ng-show="mdView.current.record.tempExtentBegin ||

@@ -120,11 +120,10 @@
            * @param {boolean} isChild is child of a parent metadata
            * @param {string} metadataUuid , the uuid of the metadata to create
            *                 (when metadata uuid is set to manual)
-           * @param {boolean} hasCategoryOfSource copy categories from source
            * @return {HttpPromise} Future object
            */
         copy: function(id, groupId, withFullPrivileges,
-            isTemplate, isChild, metadataUuid, hasCategoryOfSource) {
+            isTemplate, isChild, metadataUuid) {
           // new md type determination
           var mdType;
           switch (isTemplate) {
@@ -150,8 +149,7 @@
             isChildOfSource: isChild ? 'true' : 'false',
             group: groupId,
             isVisibleByAllGroupMembers: withFullPrivileges,
-            targetUuid: metadataUuid || '',
-            hasCategoryOfSource: hasCategoryOfSource ? 'true' : 'false'
+            targetUuid: metadataUuid || ''
           });
           return $http.put('../api/records/duplicate?' + url, {
             headers: {
@@ -196,15 +194,13 @@
            * @param {string} tab is the metadata editor tab to open
            * @param {string} metadataUuid , the uuid of the metadata to create
            *                 (when metadata uuid is set to manual)
-           * @param {boolean} hasCategoryOfSource copy categories from source
            * @return {HttpPromise} Future object
            */
         create: function(id, groupId, withFullPrivileges,
-            isTemplate, isChild, tab, metadataUuid, hasCategoryOfSource) {
+            isTemplate, isChild, tab, metadataUuid) {
 
           return this.copy(id, groupId, withFullPrivileges,
-              isTemplate, isChild, metadataUuid, hasCategoryOfSource)
-            .success(function(id) {
+              isTemplate, isChild, metadataUuid).success(function(id) {
             var path = '/metadata/' + id;
             if (tab) {
               path += '/tab/' + tab;
@@ -533,9 +529,9 @@
         'securityConstraints', 'resourceConstraints', 'legalConstraints',
         'denominator', 'resolution', 'geoDesc', 'geoBox', 'inspirethemewithac',
         'status', 'status_text', 'crs', 'identifier', 'responsibleParty',
-        'mdLanguage', 'datasetLang', 'type', 'link', 'crsDetails',
-        'creationDate', 'publicationDate', 'revisionDate'];
-      var listOfJsonFields = ['keywordGroup', 'crsDetails'];    // See below; probably not necessary
+        'mdLanguage', 'datasetLang', 'type', 'link', 'crsDetails'];
+      // See below; probably not necessary
+      var listOfJsonFields = ['keywordGroup', 'crsDetails'];
       var record = this;
       this.linksCache = [];
       $.each(listOfArrayFields, function(idx) {

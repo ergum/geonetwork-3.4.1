@@ -50,7 +50,6 @@
       $scope.formatter = gnSearchSettings.formatter;
       $scope.gnMetadataActions = gnMetadataActions;
       $scope.usingFormatter = false;
-      $scope.url = location.href;
       $scope.compileScope = $scope.$new();
       $scope.recordIdentifierRequested = gnSearchLocation.getUuid();
 
